@@ -122,8 +122,8 @@ mmdet3d/.mim
 *.pth
 
 # demo
-*.jpg
-*.png
+# *.jpg
+# *.png
 data/s3dis/Stanford3dDataset_v1.2_Aligned_Version/
 data/scannet/scans/
 data/sunrgbd/OFFICIAL_SUNRGBD/
