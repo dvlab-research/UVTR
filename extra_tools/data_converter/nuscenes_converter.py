@@ -11,7 +11,7 @@ from shapely.geometry import MultiPoint, box
 from typing import List, Tuple, Union
 
 from mmdet3d.core.bbox.box_np_ops import points_cam2img
-from mmdet3d.datasets import NuScenesDataset
+from projects.mmdet3d_plugin.datasets import NuScenesSweepDataset
 
 nus_categories = ('car', 'truck', 'trailer', 'bus', 'construction_vehicle',
                   'bicycle', 'motorcycle', 'pedestrian', 'traffic_cone',
@@ -270,8 +270,8 @@ def _fill_trainval_infos(nusc,
 
             names = [b.name for b in boxes]
             for i in range(len(names)):
-                if names[i] in NuScenesDataset.NameMapping:
-                    names[i] = NuScenesDataset.NameMapping[names[i]]
+                if names[i] in NuScenesSweepDataset.NameMapping:
+                    names[i] = NuScenesSweepDataset.NameMapping[names[i]]
             names = np.array(names)
             # we need to convert rot to SECOND format.
             gt_boxes = np.concatenate([locs, dims, -rots - np.pi / 2], axis=1)
@@ -637,9 +637,9 @@ def generate_record(ann_rec: dict, x1: float, y1: float, x2: float, y2: float,
     coco_rec['image_id'] = sample_data_token
     coco_rec['area'] = (y2 - y1) * (x2 - x1)
 
-    if repro_rec['category_name'] not in NuScenesDataset.NameMapping:
+    if repro_rec['category_name'] not in NuScenesSweepDataset.NameMapping:
         return None
-    cat_name = NuScenesDataset.NameMapping[repro_rec['category_name']]
+    cat_name = NuScenesSweepDataset.NameMapping[repro_rec['category_name']]
     coco_rec['category_name'] = cat_name
     coco_rec['category_id'] = nus_categories.index(cat_name)
     coco_rec['bbox'] = [x1, y1, x2 - x1, y2 - y1]

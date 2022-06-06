@@ -46,7 +46,7 @@ def create_groundtruth_database(dataset_class_name,
     print(f'Create GT Database of {dataset_class_name}')
     dataset_cfg = dict(
         type=dataset_class_name, data_root=data_path, ann_file=info_path, return_gt_info=True)
-    if dataset_class_name == 'NuScenesDataset':
+    if dataset_class_name == 'NuScenesSweepDataset':
         dataset_cfg.update(
             use_valid_flag=True,
             pipeline=[
