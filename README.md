@@ -13,7 +13,7 @@ Yanwei Li, Yilun Chen, Xiaojuan Qi, Zeming Li, Jian Sun, Jiaya Jia
   <img src="projects/docs/uvtr.png"/>
 </div><br/>
 
-This project provides an implementation for the paper "[Unifying Voxel-based Representation with Transformer for 3D Object Detection]()" based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d). UVTR aims to unify multi-modality representations in the voxel space for accurate and robust single- or cross-modality 3D detection.
+This project provides an implementation for the paper "[Unifying Voxel-based Representation with Transformer for 3D Object Detection](https://arxiv.org/abs/2206.00630)" based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d). UVTR aims to unify multi-modality representations in the voxel space for accurate and robust single- or cross-modality 3D detection.
 
 ## Preparation
 This project is based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d), which can be constructed as follows.
