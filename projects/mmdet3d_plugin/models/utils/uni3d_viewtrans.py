@@ -6,8 +6,6 @@ import torch.nn.functional as F
 from mmcv.runner import force_fp32, auto_fp16
 from mmcv.cnn import xavier_init, build_norm_layer
 from mmcv.runner.base_module import BaseModule
-from mmcv.ops import ModulatedDeformConv2dPack
-from modulated_deform_conv import ModulatedDeformConv3dPack
 
 class Uni3DViewTrans(BaseModule):
     """Implements the view transformer.
