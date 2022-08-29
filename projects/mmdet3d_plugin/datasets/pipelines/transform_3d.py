@@ -3,11 +3,14 @@ from numpy import random
 import torch
 import mmcv
 import cv2
+import mmdet3d
 from mmdet.datasets.builder import PIPELINES
 from mmcv.utils import build_from_cfg
-from mmdet3d.core.bbox import box_np_ops
 from mmdet3d.datasets.builder import OBJECTSAMPLERS
+from mmdet3d.core.bbox import (CameraInstance3DBoxes, DepthInstance3DBoxes,
+                               LiDARInstance3DBoxes, box_np_ops)
 
+__mmdet3d_version__ = float(mmdet3d.__version__[:3])
 
 @PIPELINES.register_module()
 class PadMultiViewImage(object):
@@ -370,9 +373,15 @@ class UnifiedRotScaleTrans(object):
         # calculate rotation matrix
         rot_sin = torch.sin(torch.tensor(noise_rotation))
         rot_cos = torch.cos(torch.tensor(noise_rotation))
-        rot_mat_T = torch.Tensor([[rot_cos, -rot_sin, 0],
-                                  [rot_sin, rot_cos, 0],
-                                  [0, 0, 1]])
+        # align coord system with previous version
+        if __mmdet3d_version__ < 1.0:
+            rot_mat_T = torch.Tensor([[rot_cos, -rot_sin, 0],
+                                    [rot_sin, rot_cos, 0],
+                                    [0, 0, 1]])
+        else:
+            rot_mat_T = torch.Tensor([[rot_cos, rot_sin, 0],
+                                    [-rot_sin, rot_cos, 0],
+                                    [0, 0, 1]])
         input_dict['uni_rot_mat'] = rot_mat_T
 
         if len(input_dict['bbox3d_fields']) == 0:  # test mode
