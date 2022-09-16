@@ -13,7 +13,7 @@ Yanwei Li, Yilun Chen, Xiaojuan Qi, Zeming Li, Jian Sun, Jiaya Jia
   <img src="projects/docs/uvtr.png"/>
 </div><br/>
 
-This project provides an implementation for the paper "[Unifying Voxel-based Representation with Transformer for 3D Object Detection](https://arxiv.org/abs/2206.00630)" based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d). UVTR aims to unify multi-modality representations in the voxel space for accurate and robust single- or cross-modality 3D detection.
+This project provides an implementation for the NeurIPS 2022 paper "[Unifying Voxel-based Representation with Transformer for 3D Object Detection](https://arxiv.org/abs/2206.00630)" based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d). UVTR aims to unify multi-modality representations in the voxel space for accurate and robust single- or cross-modality 3D detection.
 
 ## Preparation
 This project is based on [mmDetection3D](https://github.com/open-mmlab/mmdetection3d), which can be constructed as follows.
@@ -81,10 +81,10 @@ We would like to thank the authors of [mmDetection3D](https://github.com/open-mm
 Consider cite UVTR in your publications if it helps your research.
 
 ```
-@article{li2022uvtr,
+@inproceedings{li2022uvtr,
   title={Unifying Voxel-based Representation with Transformer for 3D Object Detection},
   author={Li, Yanwei and Chen, Yilun and Qi, Xiaojuan and Li, Zeming and Sun, Jian and Jia, Jiaya},
-  booktitle={arXiv preprint arXiv:2206.00630},
+  booktitle={Advances in Neural Information Processing Systems},
   year={2022}
 }
 ```
